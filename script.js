@@ -131,6 +131,11 @@ let calculateAge = function () {
     let dateDiff;
     let monthDiff;
     let yearDiff;
+
+    if (birthYear > todayYear || (birthYear == todayYear && birthMonth > todayMonth) || (birthYear == todayYear && birthMonth == todayMonth && birthDate > todayDate)) {
+        document.getElementsByClassName('ageCalOutputContainer')[0].innerHTML = "Birthdate can not be greater than today's date";
+        return;
+    }
     // Calculate date difference
     if (todayDate >= birthDate) {
         dateDiff = todayDate - birthDate;
