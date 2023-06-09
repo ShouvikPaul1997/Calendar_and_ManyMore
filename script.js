@@ -104,8 +104,10 @@ function showPanel(val) {
     let panelButtonArray = Array.from(panelButtons)
     panelButtonArray.forEach((button) => {
         button.style.backgroundColor = "white"
+        button.style.color = "black"
     })
     panelButtonArray[val].style.backgroundColor = "grey"
+    panelButtonArray[val].style.color = "white"
 }
 showPanel(0);
 
