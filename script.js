@@ -174,3 +174,7 @@ function getHighestDateInprevMonth(month, year) {
         0
     ).getDate();
 }
+
+//age calculator ends here
+
+

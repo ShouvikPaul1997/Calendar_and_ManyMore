@@ -20,8 +20,8 @@
             <div id="panelButton">
                 <div class="panelButton-div" onclick="showPanel(0)">Calendar</div>
                 <div class="panelButton-div" onclick="showPanel(1)">weather</div>
-                <div class="panelButton-div">3</div>
-                <div class="panelButton-div">4</div>
+                <div class="panelButton-div" onclick="showPanel(2)">3</div>
+                <div class="panelButton-div">Coming Soon...</div>
             </div>
 
             <!-- calendar panel -->
@@ -63,10 +63,17 @@
                 </div>
 
             </div>
+            <!-- this is implementation of note application -->
             <div class="tabElement">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. At temporibus esse minus perspiciatis id
-                voluptatem tenetur voluptates magnam, repellat quasi maiores architecto atque totam? Nesciunt repellat
-                fugiat modi qui eius
+                <div class="searchContainer">
+                    <input type="text" />
+                    <button>search</button>
+                </div>
+                <div class="noteInputContainer">
+                    <div class="noteTextBox"><textArea rows="5" id="noteTextArea"></textArea></div>
+                    <button>Save</button>
+                </div>
+                <div class="notesContainer"></div>
             </div>
             <div class="tabElement">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. At temporibus esse minus perspiciatis id
