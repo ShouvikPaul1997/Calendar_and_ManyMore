@@ -1,3 +1,15 @@
+let todoArr = [];
+let doneArr = [];
+todoArr = JSON.parse(localStorage.getItem('todoArr'))
+if (todoArr == null) {
+    todoArr = [];
+}
+
+
+
+
+
+
 function getCurrentTime() {
     let currentTime = new Date();
     return `${currentTime.getHours()} : ${currentTime.getMinutes()} : ${currentTime.getSeconds()}`;
@@ -110,6 +122,7 @@ function showPanel(val) {
     panelButtonArray[val].style.color = "white"
 }
 showPanel(0);
+populateTasks(todoArr)
 
 //// Showing diiffernet tabs code start here
 
@@ -178,3 +191,61 @@ function getHighestDateInprevMonth(month, year) {
 //age calculator ends here
 
 
+// To do app code start here
+
+let saveNotes = () => {
+    let todoTobeAdded = document.getElementById('noteTextArea');
+    todoArr.push(todoTobeAdded.value);
+    localStorage.setItem("todoArr", JSON.stringify(todoArr))
+    todoTobeAdded.value = ""
+    populateTasks(todoArr);
+}
+let deleteNotes = (idx) => {
+    console.log("hi")
+    let doneItem = todoArr.splice(idx, 1);
+    localStorage.setItem("todoArr", JSON.stringify(todoArr))
+    populateTasks(todoArr);
+    doneArr.push(doneItem)
+    populateDeletedItem();
+}
+let clearDoneArrayItems = (idx) => {
+    doneArr.splice(idx, 1);
+    populateDeletedItem();
+}
+
+function populateDeletedItem() {
+    let deletedNoteContainer = document.getElementById('deletedNoteContainer');
+    deletedNoteContainer.innerHTML = "";
+    for (let idx in doneArr) {
+        deletedNoteContainer.innerHTML += `<div class="doneNotes"><span id="deleted_notes_${idx}">${doneArr[idx]}</span>
+        <button style="cursor:pointer;" onclick="clearDoneArrayItems(${idx})"> X </button></div><br>`
+    }
+}
+
+function populateTasks(todoListArr) {
+    let notesContainer = document.getElementById('notesContainer');
+    notesContainer.innerHTML = "";
+    for (let idx in todoListArr) {
+        notesContainer.innerHTML +=
+            // `<p onclick="deleteNotes(${idx})" id="notes_${idx}">${todoListArr[idx]}<p>`
+            `<div class="">
+            <input onclick="deleteNotes(${idx})" type="checkbox" value="" id="notes_${idx}">
+            <label  class="" for="notes_${idx}">
+            ${todoListArr[idx]}
+            </label>
+        </div>`
+    }
+}
+
+//search functionality
+
+
+let searchTextContainer = document.getElementById('searchText');
+console.log(searchTextContainer)
+searchTextContainer.addEventListener('input', (event) => {
+    let searchValue = event.target.value;
+    let searchedArr = [];
+    searchedArr = todoArr.filter(str => str.includes(searchValue));
+    populateTasks(searchedArr);
+    console.log(searchedArr)
+});

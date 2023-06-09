@@ -20,7 +20,7 @@
             <div id="panelButton">
                 <div class="panelButton-div" onclick="showPanel(0)">Calendar</div>
                 <div class="panelButton-div" onclick="showPanel(1)">weather</div>
-                <div class="panelButton-div" onclick="showPanel(2)">3</div>
+                <div class="panelButton-div" onclick="showPanel(2)">To Do App</div>
                 <div class="panelButton-div">Coming Soon...</div>
             </div>
 
@@ -64,20 +64,32 @@
 
             </div>
             <!-- this is implementation of note application -->
-            <div class="tabElement">
+            <div class="tabElement" id="todoContainer">
                 <div class="searchContainer">
-                    <input type="text" />
+                    <input id="searchText" type="text" />
                     <button>search</button>
                 </div>
                 <div class="noteInputContainer">
                     <div class="noteTextBox"><textArea rows="5" id="noteTextArea"></textArea></div>
-                    <button>Save</button>
+                    <button onclick="saveNotes()">Save</button>
                 </div>
-                <div class="notesContainer"></div>
+
+                <div class="allTypeNotesContaine">
+                    <p>Saved ToDo s</p>
+                    <p>-----------------------------------------------------</p>
+                    <div id="notesContainer" class="notesContainer">
+
+                    </div>
+                    <br><br>
+                    <p>Completed ToDo s</p>
+                    <p>-----------------------------------------------------</p>
+                    <div id="deletedNoteContainer" class="notesContainer"></div>
+                </div>
             </div>
             <div class="tabElement">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. At temporibus esse minus perspiciatis id
-                voluptatem tenetur voluptates magnam, repellat quasi maiores architecto atque totam? Nesciunt repellat
+                voluptatem tenetur voluptates magnam, repellat quasi maiores architecto atque totam? Nesciunt
+                repellat
                 fugiat modi qui eius
             </div>
         </div>
