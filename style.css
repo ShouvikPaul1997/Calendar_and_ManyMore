@@ -40,9 +40,6 @@
   display: flex;
   flex-direction: column;
   box-shadow: 5px 5px 5px 2px rgb(54, 47, 47);
-
-  
-
   
 }
 #header{
@@ -94,4 +91,52 @@
 
 .fa-solid:hover{
   background-color: rgb(238, 238, 238);
+}
+/* input{
+  width: 20%;rgb(191 219 207)
+}
+textarea{
+  height: 60%;
+  margin-top: 3px;
+}
+button{
+  width: 20%;
+} */
+.ageCalInputContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 20px;
+  background-color: rgb(191 219 207);
+  width: 100%;
+}
+
+
+#ageCalc input{
+  padding: 6px;
+  border-radius: 5px;
+}
+#ageCalc textarea{
+  border-radius: 7px;
+  text-align: center;
+  height: 30px;
+  padding-top: 7px;
+}
+#ageCalc button{
+  cursor: pointer;
+  width: 89px;
+  height: 30px;
+  border-radius: 5px;
+}
+#ageCalc button:hover{
+  background-color: rgb(15, 4, 65);
+  color: white;
+}
+#ageInput{
+  height: 22px;
+}
+.ageCalOutputContainer{
+  text-align: center;
+  background-color: rgb(191 219 207);
+  padding: 20px 0;
 }

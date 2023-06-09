@@ -20,7 +20,6 @@ let monthArr = ["January", "February", "March", "April", "May", "June", "July", 
 let date = new Date();
 
 function renderDaysInCalendar() {
-    console.log(date);
     monthHolder.innerHTML = "";
     const tempDate = new Date(date.getTime());
     monthHolder.innerHTML += `${monthArr[tempDate.getMonth()]},${tempDate.getFullYear()}`;
@@ -34,9 +33,7 @@ function renderDaysInCalendar() {
     let currentMonthStartingDay = tempDate.getDay();
     tempDate.setDate(endDate);
     let currentMonthEndingDay = tempDate.getDay();
-    console.log("22222222         " + tempDate.getMonth())
     let mon = tempDate.getMonth() - 1;
-    console.log("1111111111         " + tempDate.getMonth())
     let previousMonthEndingDate = new Date(
         tempDate.getFullYear(),
         mon + 1,
@@ -95,17 +92,15 @@ nextButton.addEventListener('click', () => {
 // Showing diiffernet tabs code start here
 let panelButtons = document.getElementsByClassName('panelButton-div');
 let panelElements = document.getElementsByClassName('tabElement')
-console.log(panelButtons, panelElements)
 
 Array.from(panelButtons).forEach(button => {
-    console.log(button)
 })
 function showPanel(val) {
     let panelArr = Array.from(panelElements)
     panelArr.forEach((element) => {
         element.style.display = "none";
     })
-    panelArr[val].style.display = "block"
+    panelArr[val].style.display = "flex"
     let panelButtonArray = Array.from(panelButtons)
     panelButtonArray.forEach((button) => {
         button.style.backgroundColor = "white"
@@ -115,3 +110,60 @@ function showPanel(val) {
 showPanel(0);
 
 //// Showing diiffernet tabs code start here
+
+
+//Calculate date code starts
+let calculateAge = function () {
+    let inputDate = document.getElementById('ageInputHtml')
+    if (inputDate.value.toString() == '' || inputDate.value.toString() == undefined) {
+        document.getElementsByClassName('ageCalOutputContainer')[0].innerHTML = "Please enter value";
+        return;
+    }
+    let inputDateIntoArr = inputDate.value.toString().split('-')
+    let birthDate = inputDateIntoArr[2];
+    let birthMonth = inputDateIntoArr[1];
+    let birthYear = inputDateIntoArr[0];
+
+    let date = new Date();
+    let todayDate = date.getDate();
+    let todayMonth = date.getMonth() + 1;
+    let todayYear = date.getFullYear();
+    let dateDiff;
+    let monthDiff;
+    let yearDiff;
+    // Calculate date difference
+    if (todayDate >= birthDate) {
+        dateDiff = todayDate - birthDate;
+    }
+    else {
+        todayMonth--;
+        let endDateOfMonth = getHighestDateInprevMonth(todayMonth, todayYear);
+        dateDiff = endDateOfMonth + todayDate - birthDate;
+    }
+    // calculate month difference
+    if (todayMonth >= birthMonth) {
+        monthDiff = todayMonth - birthMonth;
+    }
+    else {
+        todayYear--;
+        monthDiff = 12 + todayMonth - birthMonth;
+
+    }
+    // calculate year  diff
+    if (todayYear >= birthYear) {
+        yearDiff = todayYear - birthYear;
+    }
+
+    console.log(yearDiff, monthDiff, dateDiff)
+    document.getElementsByClassName('ageCalOutputContainer')[0].innerHTML = `${yearDiff} years ${monthDiff} months ${dateDiff} days `;
+
+
+}
+
+function getHighestDateInprevMonth(month, year) {
+    return new Date(
+        +year,
+        +month,
+        0
+    ).getDate();
+}
