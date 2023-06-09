@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="tabContainer">
+
+            <!-- button panel -->
+
+            <div id="panelButton">
+                <div class="panelButton-div" onclick="showPanel(0)">Calendar</div>
+                <div class="panelButton-div" onclick="showPanel(1)">weather</div>
+                <div class="panelButton-div">3</div>
+                <div class="panelButton-div">4</div>
+            </div>
+
+            <!-- calendar panel -->
+
+            <div class="tabElement">
+                <div id="header">
+                    <i class="fa-solid fa-angle-left" id="prev"></i>
+                    <span class="header-date-holder">
+                        <p id="monthHolder">June</p>
+                        <p id="timeHolder"></p>
+                    </span>
+                    <i class="fa-solid fa-angle-right" id="next"></i>
+                </div>
+                <div id="dayname">
+                    <div>Sun</div>
+                    <div>Mon</div>
+                    <div>Tue</div>
+                    <div>Wed</div>
+                    <div>Thu</div>
+                    <div>Fri</div>
+                    <div>Sat</div>
+                </div>
+                <div id="days">
+
+
+                </div>
+            </div>
+            <!-- calendar end -->
+
+            <!-- new Tab2 starts here -->
+            <div class="tabElement">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. At temporibus esse minus perspiciatis id
+                voluptatem tenetur voluptates magnam, repellat quasi maiores architecto atque totam? Nesciunt repellat
+                fugiat modi qui eius
+            </div>
+            <div class="tabElement">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. At temporibus esse minus perspiciatis id
+                voluptatem tenetur voluptates magnam, repellat quasi maiores architecto atque totam? Nesciunt repellat
+                fugiat modi qui eius
+            </div>
+            <div class="tabElement">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. At temporibus esse minus perspiciatis id
+                voluptatem tenetur voluptates magnam, repellat quasi maiores architecto atque totam? Nesciunt repellat
+                fugiat modi qui eius
+            </div>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
